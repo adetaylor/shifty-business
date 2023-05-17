@@ -8,14 +8,15 @@ Pre-requisites:
 
 Steps:
 
-1. `export CLANG_BIN_DIR=` to point to a directory containing `clang`, `lld`
+1. Clone this github project
+2. `export CLANG_BIN_DIR=` to point to a directory containing `clang`, `lld`
    etc. which are configured to support ARMv7 targets. I used Chromium's,
    because I had it handy (`third_party/llvm-build/Release+Asserts/bin` within
    my Chromium checkout)
-2. `CARGO_TARGET_ARMV7_UNKNOWN_LINUX_MUSLEABI_RUSTFLAGS="-C
+3. `CARGO_TARGET_ARMV7_UNKNOWN_LINUX_MUSLEABI_RUSTFLAGS="-C
    link-arg=-fuse-ld=$CLANG_BIN_DIR/ld.lld -C linker=$CLANG_BIN_DIR/clang" cargo
    +nightly build  --target=armv7-unknown-linux-musleabi -Z build-std`
-3. `qemu-arm target/armv7-unknown-linux-musleabi/debug/shifty-business 64 64`
+4. `qemu-arm target/armv7-unknown-linux-musleabi/debug/shifty-business 64 64`
 
 Expected behavior:
 
