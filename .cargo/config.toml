@@ -1,0 +1,20 @@
+[target.i686-unknown-linux-gnu]
+rustflags = [
+    "-C", "overflow-checks",
+    "-C", "link-arg=-fuse-ld=lld",
+     "-C", "linker=clang"
+]
+[target.armv7-unknown-linux-gnueabi]
+rustflags = [
+    "-C", "overflow-checks",
+    "-C", "link-arg=-fuse-ld=lld",
+    "-C", "link-arg=--target=armv7-unknown-linux-gnueabi",
+     "-C", "linker=clang"
+]
+[target.armv7-unknown-linux-musleabi]
+rustflags = [
+    "-C", "overflow-checks",
+    "-C", "link-arg=-fuse-ld=lld",
+    "-C", "link-arg=--target=armv7-unknown-linux-gnueabi",
+     "-C", "linker=clang"
+]
